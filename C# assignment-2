@@ -27,8 +27,8 @@ namespace assignment_2
             // min and max 
 
             Console.WriteLine("Minimum number is " + arr.Min());
-            //Console.WriteLine("Maximum number is " + arr.Max());
-            //Console.Read();
+            Console.WriteLine("Maximum number is " + arr.Max());
+            Console.Read();
 
             // palidrome
 
@@ -46,9 +46,9 @@ namespace assignment_2
             }
             else
             {
-                //Console.WriteLine("String is not Palindrome \n Entered String Was {0} and reverse string is {1}", s, revs);
+                Console.WriteLine("String is not Palindrome \n Entered String Was {0} and reverse string is {1}", s, revs);
             }
-            //Console.Read();
+            Console.Read();
 
 
             string str = "Kranthi";

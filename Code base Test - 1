@@ -1,0 +1,58 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace codebasedtest1
+{
+
+   
+internal class Program
+    {
+        class Passanger
+        {
+            public string Name { get; set; }
+            public int Age { get; set; }
+            Ticket No_of_tickets { get; set; }
+            public Passanger(string name, int age)
+            {
+                Name = name;
+                Age = age;
+                No_of_tickets = new Ticket();
+            }
+            public void TicketBooking(int tickets)
+            {
+                No_of_tickets.tickets= tickets;
+                Console.WriteLine("Ticket Booked Successfully");
+            }
+        }
+        class Ticket
+        {
+            public int tickets;
+            public int Tickets
+            {
+                get => tickets;
+                set
+                {
+                    if (value > 5)
+                        throw new Exception("Cannot book more than 5 tickets");
+                    else
+                        tickets = value;
+                }
+            }
+        }
+        static void Main(string[] args)
+        {
+            Passanger passanger = new Passanger("Kranthi", 25);
+            Console.Write("Enter the number of tickets you want to book:");
+            passanger.TicketBooking(int.Parse(Console.ReadLine()));
+            Console.ReadKey();
+        }
+    }
+
+
+
+
+
+}

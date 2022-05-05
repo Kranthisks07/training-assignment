@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,107 +6,88 @@ using System.Threading.Tasks;
 
 namespace Assignment5
 {
-    internal class Program
+    public class WithdrawnException : ApplicationException
     {
-        class BankApplication
+        public WithdrawnException(string msg) : base(msg)
         {
-            int Amount = 30000;
-            static String Bank_name = "Axis bank";
-            static public int Total_balance;
-            String Account_holder = "Kranthishekar";
-            String Account_number;
-            public void Depositamount()
-            {
 
-                Console.WriteLine("Enter Your deposite  Amount :");
-                int En_depositemoney = int.Parse(Console.ReadLine());
-                Total_balance = Amount + En_depositemoney;
-                if (En_depositemoney <= 100)
-                {
-                    Console.WriteLine("Please Enter the minimum 100 rupees like...100,200,500,1000");
-                }
-                else
-                {
-                    Console.WriteLine("Total your account  balance is.... :{0}", Total_balance);
-                }
-
-            }
-            public void WithdrawMoney()
-            {
-                try
-                {
-
-                    Console.WriteLine("Please Enter Withdrawamount... :");
-                    int Withdraw_Amount = int.Parse(Console.ReadLine());
-
-                    if (Withdraw_Amount < Amount && Withdraw_Amount % 100 == 0)
-                    {
-
-                        int Newtotal_balance = Amount - Withdraw_Amount;
-                        Console.WriteLine("Take Your Cash  ...:{0} ", Withdraw_Amount);
-                        Console.WriteLine("Your Remaing amount is ...:{0}", Newtotal_balance);
-
-                    }
-                    else if (Amount < Withdraw_Amount)
-                    {
-                        Console.WriteLine("Insuffiecient Balance");
-                    }
-                    else
-                    {
-
-                        Console.WriteLine("Please Enter the minimum 100 rupees like...100,200,500,1000");
-                    }
-
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("Please Enter the valid numbers......");
-                    Console.WriteLine("Your Enter invalid choices ........");
-                }
-            }
-            public void Balance()
-            {
-                Console.WriteLine("Hi!...Welcome To {0} Bank ", Bank_name);
-                Console.WriteLine("Please Enter Account Number.....: ");
-                Account_number = Console.ReadLine();
-                Console.WriteLine("Welcome {0} Your AccountBalance: {1}", Account_holder, Amount);
-
-            }
         }
-        static void Main(string[] args)
+    }
+    public class Bank
+    {
+        float Amount = 3000.00f;
+        float Balance;
+        string Acc_Name;
+        string Acc_Number;
+
+        public Bank()
         {
-            BankApplication app = new BankApplication();
-            Console.WriteLine("Welcome to bank.....");
-            Console.WriteLine("Depositamount for 1.....");
-            Console.WriteLine(" WithdrawMoney for 2.....");
-            Console.WriteLine(" Balance for 3.....");
-            Console.WriteLine("Select Your Option .....:");
-            int option = int.Parse(Console.ReadLine());
-            if (option == 1)
+            Console.WriteLine("Enter the Account Number : ");
+            Acc_Number = Console.ReadLine();
+            Console.WriteLine("Enter the Account holder Name :");
+            Acc_Name = Console.ReadLine();
+
+            Console.WriteLine($"The Account details is : AccountNum {Acc_Number}, Acount Namer {Acc_Name}, Amount is {Amount}");
+
+        }
+
+
+        public void DepositeAmount()
+        {
+            Console.WriteLine("Enter the Deposited Amount : ");
+            float DepAmount = Convert.ToSingle(Console.ReadLine());
+
+            if (DepAmount == 0)
             {
-                app.Depositamount();
-                Console.WriteLine("Thankyou For Visit Bye.....");
-
-            }
-
-            else if (option == 2)
-            {
-
-                app.WithdrawMoney();
-                Console.WriteLine("Thank You For Visit  Bye .....");
-
-            }
-            else if (option == 3)
-            {
-                app.Balance();
-                Console.WriteLine("Your Amount Is Safe Bye.......");
+                Console.WriteLine("Deposite the minimum amount above 3000.00 ");
 
             }
             else
             {
-                Console.WriteLine("Invalid choice");
+                Balance = Amount + DepAmount;
+                Console.WriteLine("Your Account Balance is After amount deposite : " + Balance);
             }
-            Console.ReadLine();
+        }
+
+        public void Amount_Withdrawn()
+        {
+
+            Console.WriteLine("Enter the WithDrawn Amount : ");
+            float Withdrawn_Amount = Convert.ToSingle(Console.ReadLine());
+
+
+            if (Withdrawn_Amount > Balance)
+            {
+                throw (new WithdrawnException("Insufficent balance"));
+            }
+            else
+            {
+                Balance = Balance - Withdrawn_Amount;
+                Console.WriteLine("Your Account Balance is After With Draw the amount :" + Balance);
+            }
+        }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Bank bank = new Bank();
+            try
+            {
+                bank.DepositeAmount();
+                bank.Amount_Withdrawn();
+
+            }
+            catch (WithdrawnException we)
+            {
+                Console.WriteLine(we.Message);
+            }
+            catch (FormatException fe)
+            {
+                Console.WriteLine($"Enter only numbers ", fe);
+            }
+            Console.Read();
         }
     }
 }
+

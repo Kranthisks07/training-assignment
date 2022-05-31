@@ -1,0 +1,106 @@
+1)
+
+
+<!DOCTYPE html>
+<html>
+<body>
+    <form>
+        1st Number : <input type="text" id="fnum" /><br>
+        2nd Number: <input type="text" id="snum" /><br>
+        <input type="button" onClick="multiplyBy()" Value="Multiply" />
+        <input type="button" onClick="dividedBy()" Value="Divide" />
+
+    </form>
+    <p>
+        The Result is : <br>
+        <span id="result"></span>
+    </p>
+    <script type="text/javascript">
+        function multiplyBy() {
+            num1 = document.getElementById("fnum").value;
+            num2 = document.getElementById("snum").value;
+            document.getElementById("result").innerHTML = num1 * num2;
+        }
+
+        function dividedBy() {
+            num1 = document.getElementById("fnum").value;
+            num2 = document.getElementById("snum").value;
+            document.getElementById("result").innerHTML = num1 / num2;
+        }
+
+    </script>
+</body>
+</html>
+
+
+
+
+2)
+
+
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <h4>2. Write a JavaScript program to compute the sum of the given two integers. If the two values are same, then returns triple their sum.</h4>
+    <script>
+        function TripleSum(a, b) {
+            if (a == b) {
+                return 3 * (a + b);
+            }
+            else {
+                return (a + b);
+            }
+        }
+        document.writeln("TripleSum(5, 10)" + " " + TripleSum(5, 10));
+        document.write("<br>")
+        document.writeln("TripleSum(20, 20)"+" "+TripleSum(20, 20));
+
+    </script>
+
+
+</body>
+</html>
+
+
+
+
+3)
+
+
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+
+    
+</head>
+<body>
+    <h2>
+        To check whether two given integer values are in the range 50.....99
+        Return true if either of them are in the said range.Else False
+    </h2>
+    <script>
+
+    function Check_Num(x, y) {
+    if ((x >= 50 && x <= 99) && (y >= 50 && y <= 99)) {
+    return true;
+    }
+    else {
+    return false;
+    }
+    }
+    document.writeln("Check_Num(10, 20)" + " " + Check_Num(10, 20));
+    document.write("<br>");
+    document.writeln("Check_Num(30, 50)" + " " + Check_Num(30,50));
+    document.write("<br>");
+    document.writeln("Check_Num(50, 90)"+" "+Check_Num(50, 90));
+    </script>
+
+</body>
+</html>

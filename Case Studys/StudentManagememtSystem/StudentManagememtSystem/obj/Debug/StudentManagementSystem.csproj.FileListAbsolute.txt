@@ -1,0 +1,8 @@
+C:\training-assignment\Case Studys\StudentManagememtSystem\StudentManagememtSystem\bin\Debug\StudentManagememtSystem.exe.config
+C:\training-assignment\Case Studys\StudentManagememtSystem\StudentManagememtSystem\bin\Debug\StudentManagememtSystem.exe
+C:\training-assignment\Case Studys\StudentManagememtSystem\StudentManagememtSystem\bin\Debug\StudentManagememtSystem.pdb
+C:\training-assignment\Case Studys\StudentManagememtSystem\StudentManagememtSystem\obj\Debug\StudentManagementSystem.csproj.AssemblyReference.cache
+C:\training-assignment\Case Studys\StudentManagememtSystem\StudentManagememtSystem\obj\Debug\StudentManagementSystem.csproj.SuggestedBindingRedirects.cache
+C:\training-assignment\Case Studys\StudentManagememtSystem\StudentManagememtSystem\obj\Debug\StudentManagementSystem.csproj.CoreCompileInputs.cache
+C:\training-assignment\Case Studys\StudentManagememtSystem\StudentManagememtSystem\obj\Debug\StudentManagememtSystem.exe
+C:\training-assignment\Case Studys\StudentManagememtSystem\StudentManagememtSystem\obj\Debug\StudentManagememtSystem.pdb
